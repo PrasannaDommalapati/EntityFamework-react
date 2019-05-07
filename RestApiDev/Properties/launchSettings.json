@@ -12,8 +12,9 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/promotion",
       "environmentVariables": {
+        "ConnectionStrings:SQLConnectionString": "Data Source=(localdb)\\MSSQLLocalDB;Database=Promotions;Integrated Security=True;Trusted_Connection=true;Connect Timeout=30;",
+        "ConnectionStrings:StorageConnectionString": "UseDevelopmentStorage=true",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

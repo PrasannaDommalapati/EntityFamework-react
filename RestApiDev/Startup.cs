@@ -8,9 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using RestApiDev.Manager;
 using RestApiDev.Models;
 using Swashbuckle.AspNetCore.Swagger;
-using System;
-using System.IO;
-using System.Reflection;
 
 namespace RestApiDev
 {
@@ -29,8 +26,10 @@ namespace RestApiDev
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PromotionTriumphContext>(options => 
-                    options.UseInMemoryDatabase("PromotionList"));
+       
+            services.AddDbContext<PromotionTriumphContext>(options =>
+            options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Database = Promotions; Integrated Security = True; Trusted_Connection = true; Connect Timeout = 30; "));
+            //options.UseSqlServer(Configuration.GetConnectionString("ConnectionStrings:SQLConnectionString")));
 
             services
                 .AddMvc()
@@ -51,21 +50,9 @@ namespace RestApiDev
                     Version = "V1",
                     Title = "Promotion Triumph API",
                     Description = "A simple example ASP.NET Core Web API",
-                    TermsOfService = "None",
-                    Contact = new Contact
-                    {
-                        Name = "Shayne Boyer",
-                        Email = string.Empty,
-                        Url = "https://twitter.com/spboyer"
-                    },
-                    License = new License
-                    {
-                        Name = "Use under LICX",
-                        Url = "https://example.com/license"
-                    }
                 });
             })
-            .AddSingleton<IStory, Story>();
+            .AddSingleton<IPromotion, Promotion>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

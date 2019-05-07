@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RestApiDev.Library.Models;
-using RestApiDev.Manager;
+using RestApiDev.Models;
 using static RestApiDev.Library.Configuration;
 
 namespace RestApiDev.Controllers
@@ -13,19 +12,19 @@ namespace RestApiDev.Controllers
     [ApiController]
     public class PromotionController : ControllerBase
     {
+        private PromotionTriumphContext Context { get; }
 
-        private IStory Promotions { get; }
-
-        public PromotionController(IStory story)
+        public PromotionController(PromotionTriumphContext context)
         {
-            Promotions = story ?? throw new ArgumentNullException(nameof(story));
+            Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         // GET api/promotion
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public List<PromotedItems> Get()
         {
-            return new string[] { "promotion1", "promotion2" };
+            return Context.PromotedItems
+                .Where(item => item.IsComplete == false).ToList();
         }
 
         // GET api/promotions/5
@@ -38,12 +37,20 @@ namespace RestApiDev.Controllers
         // POST api/promotions
         [HttpPost]
         [Route(PromotionEndpoint)]
-        public Task<string> CreatePromotion(
+        public void CreatePromotion(
             [FromBody]
             [Bind(nameof(PromotionModel.Id))] PromotionModel promotionModel)
         {
-            Console.WriteLine(promotionModel);
-            return Promotions.CreatePromotion(promotionModel);
+            var item = new PromotedItems()
+            {
+                Name = promotionModel.Name,
+                Id = promotionModel.Id,
+                EndDate = promotionModel.FinishDate,
+                IsComplete = promotionModel.IsComplete
+
+            };
+            Context.PromotedItems.Add(item);
+            Context.SaveChanges();
         }
 
         // PUT api/promotions/5

@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace RestApiDev.Manager
 {
-    public class Story : IStory
+    public class Promotion : IPromotion
     {
+
         public Task<string> CreatePromotion(PromotionModel promotion)
         {
             Console.WriteLine(promotion);

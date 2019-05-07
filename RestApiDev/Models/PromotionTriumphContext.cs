@@ -13,6 +13,11 @@ namespace RestApiDev.Models
 
         }
 
+        public PromotionTriumphContext()
+        {
+
+        }
+
         public DbSet<PromotedItems> PromotedItems { get; set; }
 
         public DbSet<FinishedItems> FinishedItems { get; set; }
