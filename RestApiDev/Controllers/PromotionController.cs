@@ -21,17 +21,20 @@ namespace RestApiDev.Controllers
 
         // GET api/promotion
         [HttpGet]
-        public List<PromotedItems> Get()
+        public IEnumerable<PromotedItems> Get()
         {
             return Context.PromotedItems
-                .Where(item => item.IsComplete == false).ToList();
+                .Where(item => item.IsComplete == true).ToList();
         }
 
         // GET api/promotions/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public IEnumerable<PromotedItems> Get(Guid id)
         {
-            return "promotion";
+            var promoteditems = from item in Context.PromotedItems
+                                where item.Id == id
+                                select item;
+            return promoteditems;
         }
 
         // POST api/promotions
@@ -45,6 +48,7 @@ namespace RestApiDev.Controllers
             {
                 Name = promotionModel.Name,
                 Id = promotionModel.Id,
+                StartDate = promotionModel.StartDate,
                 EndDate = promotionModel.FinishDate,
                 IsComplete = promotionModel.IsComplete
 
@@ -55,8 +59,19 @@ namespace RestApiDev.Controllers
 
         // PUT api/promotions/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string promotion)
+        public void Put(Guid id, [FromBody] PromotionModel promotionModel)
         {
+            var updatedItem = new PromotedItems()
+            {
+                Name = promotionModel.Name,
+                Id = id,
+                StartDate = promotionModel.StartDate,
+                EndDate = promotionModel.FinishDate,
+                IsComplete = promotionModel.IsComplete
+
+            };
+            Context.PromotedItems.Update(updatedItem);
+            Context.SaveChanges();
         }
 
         // DELETE api/promotions/5

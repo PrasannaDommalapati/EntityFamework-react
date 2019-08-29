@@ -26,9 +26,9 @@ namespace RestApiDev
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-       
+           
             services.AddDbContext<PromotionTriumphContext>(options =>
-            options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Database = Promotions; Integrated Security = True; Trusted_Connection = true; Connect Timeout = 30; "));
+            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Promotions;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
             //options.UseSqlServer(Configuration.GetConnectionString("ConnectionStrings:SQLConnectionString")));
 
             services
