@@ -10,8 +10,8 @@ using RestApiDev.Models;
 namespace RestApiDev.Migrations
 {
     [DbContext(typeof(PromotionTriumphContext))]
-    [Migration("20190509182127_initial")]
-    partial class initial
+    [Migration("20190830124840_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,6 +48,8 @@ namespace RestApiDev.Migrations
                     b.Property<bool>("IsComplete");
 
                     b.Property<string>("Name");
+
+                    b.Property<DateTime>("StartDate");
 
                     b.HasKey("Id");
 

@@ -28,7 +28,7 @@ namespace RestApiDev
         {
            
             services.AddDbContext<PromotionTriumphContext>(options =>
-            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Promotions;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
+            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RebatePromo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
             //options.UseSqlServer(Configuration.GetConnectionString("ConnectionStrings:SQLConnectionString")));
 
             services
