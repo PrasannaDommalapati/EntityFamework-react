@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestApiDev.Models
+namespace RestApiDev.Library.Data.Entity
 {
     public class PromotedItems
     {

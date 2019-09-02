@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev", "RestApiDev\RestApiDev.csproj", "{86B23600-AD77-42DA-BC36-32FAF060A618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev.API", "RestApiDev\RestApiDev.API.csproj", "{86B23600-AD77-42DA-BC36-32FAF060A618}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev.Library.Tests", "RestApiDev.Library.Tests\RestApiDev.Library.Tests.csproj", "{C5FB88E6-E19A-46BA-AB16-14617591A777}"
 EndProject
@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev.Library", "RestA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi.Manager.Tests", "RestApi.Manager.Tests\RestApi.Manager.Tests.csproj", "{1CF2CBB3-822A-4B22-8743-5B8A7CF05A96}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev.Tests", "RestApiDev.Tests\RestApiDev.Tests.csproj", "{1284BA07-8513-425D-92F9-4529672A023F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev.API.Tests", "RestApiDev.Tests\RestApiDev.API.Tests.csproj", "{1284BA07-8513-425D-92F9-4529672A023F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDev.UI", "RestApiDev.UI\RestApiDev.UI.csproj", "{A1FBBAD2-E531-4262-9467-8EA839EE8242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiDev.Constants", "RestApiDev.Constants\RestApiDev.Constants.csproj", "{23FDC225-494F-4987-B373-0E88427C2635}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A1FBBAD2-E531-4262-9467-8EA839EE8242}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1FBBAD2-E531-4262-9467-8EA839EE8242}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1FBBAD2-E531-4262-9467-8EA839EE8242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23FDC225-494F-4987-B373-0E88427C2635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23FDC225-494F-4987-B373-0E88427C2635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23FDC225-494F-4987-B373-0E88427C2635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23FDC225-494F-4987-B373-0E88427C2635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 
-namespace RestApiDev.Tests
+namespace RestApiDev.API.Tests
 {
     [TestClass]
     public class StartupTests

@@ -1,23 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApiDev.Exceptions
+namespace RestApiDev.Library.Exceptions
 {
     public class ExceptionHandler
     {
 
-        private readonly RequestDelegate next;
+        private readonly RequestDelegate Request;
 
         public Func<HttpResponse, string, CancellationToken, Task> WriteAsync { get; set; }
 
-        public ExceptionHandler(RequestDelegate next)
+        public ExceptionHandler(RequestDelegate request)
         {
-            this.next = next ?? throw new ArgumentNullException(nameof(next));
+            Request = request.ValidateForNotNull();
             WriteAsync = HttpResponseWritingExtensions.WriteAsync;
         }
 
@@ -25,7 +22,7 @@ namespace RestApiDev.Exceptions
         {
             try
             {
-                await next(context).ConfigureAwait(false);
+                await Request(context).ConfigureAwait(false);
             }
             catch (Exception ex)
             {

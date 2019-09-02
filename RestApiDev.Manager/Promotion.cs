@@ -1,17 +1,28 @@
-﻿using RestApiDev.Library.Models;
+﻿using AutoMapper;
+using RestApiDev.Library.Data;
+using RestApiDev.Library.Data.Entity;
+using RestApiDev.Library.Models;
 using System;
-using System.Threading.Tasks;
 
 namespace RestApiDev.Manager
 {
     public class Promotion : IPromotion
     {
+        private readonly DataContext DataContext;
+        private readonly IMapper Mapper;
 
-        public Task<string> CreatePromotion(PromotionModel promotion)
+        public Promotion(DataContext dataContext, IMapper mapper)
         {
-            Console.WriteLine(promotion);
+            DataContext = dataContext.ValidateForNotNull();
+            Mapper = mapper;
+        }
 
-            throw new NotImplementedException();
+        public void Create(PromotionModel promotion)
+        {
+            var item = Mapper.Map<PromotedItems>(promotion);
+
+            DataContext.PromotedItems.Add(item);
+            DataContext.SaveChanges();
         }
     }
 }

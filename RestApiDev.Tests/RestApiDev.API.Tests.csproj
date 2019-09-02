@@ -13,6 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RestApiDev\RestApiDev.csproj" />
+    <ProjectReference Include="..\RestApiDev\RestApiDev.API.csproj" />
   </ItemGroup>
 </Project>

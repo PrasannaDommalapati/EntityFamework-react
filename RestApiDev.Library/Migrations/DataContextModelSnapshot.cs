@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestApiDev.Models;
+using RestApiDev.Library.Data;
 
-namespace RestApiDev.Migrations
+namespace RestApiDev.Library.Migrations
 {
-    [DbContext(typeof(PromotionTriumphContext))]
-    partial class PromotionTriumphContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DataContext))]
+    partial class DataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace RestApiDev.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RestApiDev.Models.FinishedItems", b =>
+            modelBuilder.Entity("RestApiDev.Library.Data.Entity.FinishedItems", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace RestApiDev.Migrations
                     b.ToTable("FinishedItems");
                 });
 
-            modelBuilder.Entity("RestApiDev.Models.PromotedItems", b =>
+            modelBuilder.Entity("RestApiDev.Library.Data.Entity.PromotedItems", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();

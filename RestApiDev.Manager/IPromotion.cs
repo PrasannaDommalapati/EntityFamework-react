@@ -5,6 +5,6 @@ namespace RestApiDev.Manager
 {
     public interface IPromotion 
     {
-        Task<string> CreatePromotion(PromotionModel promotion);
+        void Create(PromotionModel promotion);
     }
 }

@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RestApiDev.Library.Data;
 using RestApiDev.Manager;
-using RestApiDev.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace RestApiDev
+namespace RestApiDev.API
 {
     public class Startup
     {
@@ -27,9 +27,9 @@ namespace RestApiDev
         public void ConfigureServices(IServiceCollection services)
         {
            
-            services.AddDbContext<PromotionTriumphContext>(options =>
-            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RebatePromo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
-            //options.UseSqlServer(Configuration.GetConnectionString("ConnectionStrings:SQLConnectionString")));
+            services.AddDbContext<DataContext>(options =>
+            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Promotion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
+            //options.UseSqlServer(Configuration.GetValue<string>("ConnectionStrings:SQLConnectionString")));
 
             services
                 .AddMvc()

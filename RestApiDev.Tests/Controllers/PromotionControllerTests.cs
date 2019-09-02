@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RestApiDev.Controllers;
+using RestApiDev.API.Controllers;
 using System;
 
-namespace RestApiDev.Tests
+namespace RestApiDev.API.Tests
 {
     [TestClass]
-    public class PromotionTriumphControllerTests
+    public class PromotionControllerTests
     {
         [TestMethod]
         public void CreatePromotion_Returns_Guid()
@@ -14,9 +14,9 @@ namespace RestApiDev.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Ctor_Throws_Null_Story()
         {
-            Assert.IsTrue(true);
             _ = new PromotionController(null);
         }
     }

@@ -2,39 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using RestApiDev.Library.Data;
+using RestApiDev.Library.Data.Entity;
 using RestApiDev.Library.Models;
-using RestApiDev.Models;
-using static RestApiDev.Library.Configuration;
+using RestApiDev.Manager;
+using static Constants.Configuration;
 
-namespace RestApiDev.Controllers
+namespace RestApiDev.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class PromotionController : ControllerBase
     {
-        private PromotionTriumphContext Context { get; }
+        private readonly IPromotion Promotion;
 
-        public PromotionController(PromotionTriumphContext context)
+        public PromotionController(Promotion promotion)
         {
-            Context = context ?? throw new ArgumentNullException(nameof(context));
+            Promotion = promotion.ValidateForNotNull();
         }
 
         // GET api/promotion
         [HttpGet]
         public IEnumerable<PromotedItems> Get()
         {
-            return Context.PromotedItems
-                .Where(item => item.IsComplete == true).ToList();
+            return null;
+            //return Context.PromotedItems
+            //    .Where(item => item.IsComplete == true).ToList();
         }
 
         // GET api/promotions/5
         [HttpGet("{id}")]
         public IEnumerable<PromotedItems> Get(Guid id)
         {
-            var promoteditems = from item in Context.PromotedItems
-                                where item.Id == id
-                                select item;
-            return promoteditems;
+            //var promoteditems = from item in Context.PromotedItems
+            //                    where item.Id == id
+            //                    select item;
+            //return promoteditems;
+
+            return null;
         }
 
         // POST api/promotions
@@ -44,17 +49,7 @@ namespace RestApiDev.Controllers
             [FromBody]
             [Bind(nameof(PromotionModel.Id))] PromotionModel promotionModel)
         {
-            var item = new PromotedItems()
-            {
-                Name = promotionModel.Name,
-                Id = promotionModel.Id,
-                StartDate = promotionModel.StartDate,
-                EndDate = promotionModel.FinishDate,
-                IsComplete = promotionModel.IsComplete
-
-            };
-            Context.PromotedItems.Add(item);
-            Context.SaveChanges();
+            Promotion.Create(promotionModel);
         }
 
         // PUT api/promotions/5
@@ -70,8 +65,8 @@ namespace RestApiDev.Controllers
                 IsComplete = promotionModel.IsComplete
 
             };
-            Context.PromotedItems.Update(updatedItem);
-            Context.SaveChanges();
+            //Context.PromotedItems.Update(updatedItem);
+            //Context.SaveChanges();
         }
 
         // DELETE api/promotions/5

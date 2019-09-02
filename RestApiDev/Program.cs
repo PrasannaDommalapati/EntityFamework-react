@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace RestApiDev
+namespace RestApiDev.API
 {
     public class Program
     {

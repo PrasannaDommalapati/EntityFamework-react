@@ -1,6 +1,8 @@
-﻿namespace RestApiDev.Library
+﻿using System;
+
+namespace Constants
 {
-    public static class Configuration
+    public class Configuration
     {
         public const string PromotionEndpoint = "/api/promotion";
         public const string SQLConnectionString = "ConnectionStrings:SQLConnectionString";
