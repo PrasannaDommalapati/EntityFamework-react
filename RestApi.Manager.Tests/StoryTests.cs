@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace RestApi.Manager.Tests
+namespace RestApiDev.Manager.Tests
 {
     [TestClass]
     public class StoryTests

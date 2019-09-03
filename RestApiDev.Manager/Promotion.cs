@@ -8,13 +8,13 @@ namespace RestApiDev.Manager
 {
     public class Promotion : IPromotion
     {
-        private readonly DataContext DataContext;
+        private readonly IDataContext DataContext;
         private readonly IMapper Mapper;
 
-        public Promotion(DataContext dataContext, IMapper mapper)
+        public Promotion(IDataContext dataContext, IMapper mapper)
         {
             DataContext = dataContext.ValidateForNotNull();
-            Mapper = mapper;
+            Mapper = mapper.ValidateForNotNull();
         }
 
         public void Create(PromotionModel promotion)
@@ -22,7 +22,7 @@ namespace RestApiDev.Manager
             var item = Mapper.Map<PromotedItems>(promotion);
 
             DataContext.PromotedItems.Add(item);
-            DataContext.SaveChanges();
+            DataContext.Update();
         }
     }
 }

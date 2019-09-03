@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestApiDev.Library.Data;
+using RestApiDev.Library.Mapping;
 using RestApiDev.Manager;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -52,7 +54,8 @@ namespace RestApiDev.API
                     Description = "A simple example ASP.NET Core Web API",
                 });
             })
-            .AddSingleton<IPromotion, Promotion>();
+            .AddSingleton<IPromotion, Promotion>()
+            .AddSingleton(typeof(IMapper), AutoMappingRegister.Create());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
