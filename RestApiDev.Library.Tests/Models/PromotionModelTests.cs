@@ -65,5 +65,24 @@ namespace RestApiDev.Library.Models.Tests
             validator.ShouldHaveValidationErrorFor(p => p.StartDate, promotionModel)
                 .WithErrorMessage($"'Start Date' must be greater than '{date}'.");
         }
+
+        [TestMethod]
+        public void Ctor_Validate_EndDate_GreaterThan_StartDate()
+        {
+            var date = DateTime.UtcNow;
+            var name = new Faker().Random.String2(200);
+            var promotionModel = new PromotionModel
+            {
+                Name = name,
+                IsComplete = false,
+                StartDate = date,
+                FinishDate = date.AddDays(-3)
+            };
+
+            var validator = new PromotionModelValidator();
+
+            validator.ShouldHaveValidationErrorFor(p => p.FinishDate, promotionModel)
+                .WithErrorMessage($"'Finish Date' must be greater than '{date}'.");
+        }
     }
 }
