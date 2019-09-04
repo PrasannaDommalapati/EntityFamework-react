@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using RestApiDev.Library.Data;
 using RestApiDev.Library.Data.Entity;
@@ -14,11 +15,11 @@ namespace RestApiDev.API.Controllers
     [ApiController]
     public class PromotionController : ControllerBase
     {
-        private readonly IPromotion Promotion;
+        private readonly ITestimony Promotion;
 
-        public PromotionController(Promotion promotion)
+        public PromotionController(IDataContext dataContext, IMapper mapper)
         {
-            Promotion = promotion.ValidateForNotNull();
+            Promotion =new Testimony(dataContext, mapper);
         }
 
         // GET api/promotion
@@ -47,7 +48,7 @@ namespace RestApiDev.API.Controllers
         [Route(PromotionEndpoint)]
         public void CreatePromotion(
             [FromBody]
-            [Bind(nameof(PromotionModel.Id))] PromotionModel promotionModel)
+            [Bind(nameof(PromotionModel.Name))] PromotionModel promotionModel)
         {
             Promotion.Create(promotionModel);
         }
@@ -63,7 +64,6 @@ namespace RestApiDev.API.Controllers
                 StartDate = promotionModel.StartDate,
                 EndDate = promotionModel.FinishDate,
                 IsComplete = promotionModel.IsComplete
-
             };
             //Context.PromotedItems.Update(updatedItem);
             //Context.SaveChanges();

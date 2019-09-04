@@ -6,12 +6,12 @@ using System;
 
 namespace RestApiDev.Manager
 {
-    public class Promotion : IPromotion
+    public class Testimony : ITestimony
     {
         private readonly IDataContext DataContext;
         private readonly IMapper Mapper;
 
-        public Promotion(IDataContext dataContext, IMapper mapper)
+        public Testimony(IDataContext dataContext, IMapper mapper)
         {
             DataContext = dataContext.ValidateForNotNull();
             Mapper = mapper.ValidateForNotNull();

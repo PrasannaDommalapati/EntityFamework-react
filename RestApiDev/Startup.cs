@@ -28,7 +28,6 @@ namespace RestApiDev.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Promotion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;"));
             //options.UseSqlServer(Configuration.GetValue<string>("ConnectionStrings:SQLConnectionString")));
@@ -54,7 +53,7 @@ namespace RestApiDev.API
                     Description = "A simple example ASP.NET Core Web API",
                 });
             })
-            .AddSingleton<IPromotion, Promotion>()
+            .AddSingleton<ITestimony, Testimony>()
             .AddSingleton(typeof(IMapper), AutoMappingRegister.Create());
         }
 

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RestApiDev.Library.Data;
@@ -8,7 +7,7 @@ using System;
 namespace RestApiDev.Manager.Tests
 {
     [TestClass]
-    public class PromotionTests
+    public class TestimonyTests
     {
         private IMapper Mapper;
         private IDataContext DataContext;
@@ -24,14 +23,14 @@ namespace RestApiDev.Manager.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void Ctor_DataContext_Null()
         {
-            _ = new Promotion(null,Mapper);
+            _ = new Testimony(null,Mapper);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Ctor_Mapper_Null()
         {
-            _ = new Promotion(DataContext,null);
+            _ = new Testimony(DataContext,null);
         }
     }
 }
