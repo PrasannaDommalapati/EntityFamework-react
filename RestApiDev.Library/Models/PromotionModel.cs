@@ -25,6 +25,7 @@ namespace RestApiDev.Library.Models
                     .GreaterThan(DateTime.UtcNow);
 
                 RuleFor(t => t.FinishDate)
+                    .GreaterThan(DateTime.UtcNow)
                     .GreaterThan(t =>t.StartDate);
             }
         }
