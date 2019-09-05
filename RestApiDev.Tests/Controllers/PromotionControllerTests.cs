@@ -27,7 +27,6 @@ namespace RestApiDev.API.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Ctor_Throws_Null_Story()
         {
             _ = new PromotionController(DataContext,Mapper);
