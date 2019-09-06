@@ -5,6 +5,7 @@
     <ProjectGuid>{33e61d71-a1e6-437d-99c2-117cc46182ae}</ProjectGuid>
     <DebugType>Full</DebugType>
     <IsPackable>false</IsPackable>
+    <SonarQubeTestProject>true</SonarQubeTestProject>
   </PropertyGroup>
 
   <ItemGroup>

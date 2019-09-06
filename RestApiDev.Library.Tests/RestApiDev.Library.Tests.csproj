@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <ProjectGuid>{36585353-65ec-44ee-8a27-8d93eb53eaa7}</ProjectGuid>
     <IsPackable>false</IsPackable>
+    <SonarQubeTestProject>true</SonarQubeTestProject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +19,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <DotNetCliToolReference Include="JetBrains.dotCover.DotNetCliTool" Version="2019.2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
