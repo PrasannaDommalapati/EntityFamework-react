@@ -9,5 +9,7 @@ namespace RestApiDev.Library.Models
         public string Name { get; set; }
 
         public string Email { get; set; }
+
+        public string FirstName { get; set; }
     }
 }

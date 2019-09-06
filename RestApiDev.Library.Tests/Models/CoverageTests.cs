@@ -16,16 +16,19 @@ namespace RestApiDev.Library.Tests.Models
             var faker = new Faker();
 
             var name = faker.Name.FullName();
+            var firstName = faker.Name.FirstName();
             var email = faker.Internet.Email();
 
             var cov = new Coverage
             {
                 Email = email,
-                Name = name
+                Name = name,
+                FirstName = firstName
             };
 
             Assert.AreEqual(email, cov.Email);
             Assert.AreEqual(name, cov.Name);
+            Assert.AreEqual(firstName, cov.FirstName);
         }
     }
 }
