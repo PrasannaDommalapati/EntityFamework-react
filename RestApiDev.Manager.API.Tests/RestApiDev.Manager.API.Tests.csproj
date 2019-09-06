@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <ProjectGuid>{33e61d71-a1e6-437d-99c2-117cc46182ae}</ProjectGuid>
     <DebugType>Full</DebugType>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -15,6 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RestApiDev\RestApiDev.API.csproj" />
+    <ProjectReference Include="..\RestApiDev.Manager.API\RestApiDev.Manager.API.csproj" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <ProjectGuid>{a1976ffa-a36c-43b8-ad0a-d67dedb7fc31}</ProjectGuid>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DebugType>Full</DebugType>
   </PropertyGroup>
