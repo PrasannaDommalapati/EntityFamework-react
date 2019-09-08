@@ -23,14 +23,22 @@ namespace RestApiDev.Manager.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void Ctor_DataContext_Null()
         {
-            _ = new Testimony(null,Mapper);
+            _ = new Testimony(null, Mapper);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Ctor_Mapper_Null()
         {
-            _ = new Testimony(DataContext,null);
+            _ = new Testimony(DataContext, null);
+        }
+
+        [TestMethod]
+        public void Create_Null_PromotionModel()
+        {
+            var testimony = new Testimony(DataContext, Mapper);
+
+            Assert.ThrowsException<ArgumentNullException>(() => testimony.Create(null));
         }
     }
 }

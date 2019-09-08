@@ -19,6 +19,7 @@ namespace RestApiDev.Manager
 
         public void Create(PromotionModel promotion)
         {
+            promotion.ValidateForNotNull();
             var item = Mapper.Map<PromotedItems>(promotion);
 
             DataContext.PromotedItems.Add(item);
