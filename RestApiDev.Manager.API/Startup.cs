@@ -54,6 +54,7 @@ namespace RestApiDev.API
                 });
             })
             .AddSingleton<ITestimony, Testimony>()
+            .AddSingleton<IHarvestingWork, HarvestingWork>()
             .AddSingleton(typeof(IMapper), AutoMappingRegister.Create());
         }
 
