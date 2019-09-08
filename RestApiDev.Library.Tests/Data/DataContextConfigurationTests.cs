@@ -2,9 +2,11 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestApiDev.Library.Data;
+using System.Diagnostics.CodeAnalysis;
 
 namespace RestApiDev.Library.Tests.Data
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class DataContextConfigurationTests
     {
