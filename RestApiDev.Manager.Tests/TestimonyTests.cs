@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+using NSubstitute;
 using RestApiDev.Library.Data;
+using RestApiDev.Library.Models;
 using System;
 
 namespace RestApiDev.Manager.Tests
@@ -15,8 +16,8 @@ namespace RestApiDev.Manager.Tests
         [TestInitialize]
         public void Init()
         {
-            Mapper = new Mock<IMapper>().Object;
-            DataContext = new Mock<IDataContext>().Object;
+            Mapper = Substitute.For<IMapper>();
+            DataContext = Substitute.For<IDataContext>();
         }
 
         [TestMethod]
@@ -39,6 +40,19 @@ namespace RestApiDev.Manager.Tests
             var testimony = new Testimony(DataContext, Mapper);
 
             Assert.ThrowsException<ArgumentNullException>(() => testimony.Create(null));
+        }
+
+        [TestMethod]
+        public void Create_Success()
+        {
+            var promotionModel = new PromotionModel();
+            var testimony = new Testimony(DataContext, Mapper);
+            
+            testimony.Create(promotionModel);
+
+            DataContext
+                .Received()
+                .Update();
         }
     }
 }
