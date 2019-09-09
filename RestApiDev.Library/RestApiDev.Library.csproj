@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <DebugType>Full</DebugType>
     <ProjectGuid>{1a3bd488-1fe5-4b6b-9b60-2be9b8ab085f}</ProjectGuid>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,6 +5,7 @@
     <ProjectGuid>{36585353-65ec-44ee-8a27-8d93eb53eaa7}</ProjectGuid>
     <IsPackable>false</IsPackable>
     <SonarQubeTestProject>true</SonarQubeTestProject>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
