@@ -24,7 +24,7 @@ namespace RestApiDev.API.Controllers
 
         // GET api/promotion
         [HttpGet]
-        public IEnumerable<PromotedItems> Get()
+        public IEnumerable<PromotedItem> Get()
         {
             return null;
             //return Context.PromotedItems
@@ -33,7 +33,7 @@ namespace RestApiDev.API.Controllers
 
         // GET api/promotions/5
         [HttpGet("{id}")]
-        public IEnumerable<PromotedItems> Get(Guid id)
+        public IEnumerable<PromotedItem> Get(Guid id)
         {
             //var promoteditems = from item in Context.PromotedItems
             //                    where item.Id == id
@@ -57,7 +57,7 @@ namespace RestApiDev.API.Controllers
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] PromotionModel promotionModel)
         {
-            var updatedItem = new PromotedItems()
+            var updatedItem = new PromotedItem()
             {
                 Name = promotionModel.Name,
                 Id = id,

@@ -12,7 +12,7 @@ namespace RestApiDev.Library.Data
         {
         }
 
-        public Task<List<PromotedItems>> GetPromotions()
+        public Task<List<PromotedItem>> GetPromotions()
         {
             var promotedItems = from p in DataContext.PromotedItems
                                 select p;

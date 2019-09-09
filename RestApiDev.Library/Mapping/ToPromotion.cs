@@ -8,7 +8,7 @@ namespace RestApiDev.Library.Mapping
     {
         public ToPromotion()
         {
-            CreateMap<PromotedItems, PromotionModel>()
+            CreateMap<PromotedItem, PromotionModel>()
                 .ForMember(p => p.Name, m => m.MapFrom(e => e.Name))
                 .ForMember(p => p.FinishDate, m => m.MapFrom(e => e.EndDate));
         }

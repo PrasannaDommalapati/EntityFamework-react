@@ -17,7 +17,7 @@ namespace RestApiDev.Library.Tests.Mapping
         {
             IMapper mapper = AutoMappingRegister.Create();
 
-            var promotionItem = new PromotedItems
+            var promotionItem = new PromotedItem
             {
                 EndDate = DateTime.Now.AddDays(10),
                 StartDate = DateTime.Now,

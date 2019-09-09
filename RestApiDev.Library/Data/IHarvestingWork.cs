@@ -6,6 +6,6 @@ namespace RestApiDev.Library.Data
 {
     public interface IHarvestingWork
     {
-        Task<List<PromotedItems>> GetPromotions();
+        Task<List<PromotedItem>> GetPromotions();
     }
 }

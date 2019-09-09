@@ -2,7 +2,7 @@
 
 namespace RestApiDev.Library.Data.Entity
 {
-    public class PromotedItems
+    public class PromotedItem
     {
         public Guid Id { get; set; }
 

@@ -13,7 +13,7 @@ namespace RestApiDev.Library.Data
         {
         }
 
-        public DbSet<PromotedItems> PromotedItems { get; set; }
+        public DbSet<PromotedItem> PromotedItems { get; set; }
 
         public DbSet<FinishedItems> FinishedItems { get; set; }
     }

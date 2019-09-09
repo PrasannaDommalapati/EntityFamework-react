@@ -8,9 +8,9 @@ namespace RestApiDev.Library.Data
     public interface IDataContext : IDisposable
     {
 
-        void CreatePromotion(PromotedItems promotedItem);
+        void CreatePromotion(PromotedItem promotedItem);
 
-        DbSet<PromotedItems> PromotedItems { get; set; }
+        DbSet<PromotedItem> PromotedItems { get; set; }
 
         DbSet<FinishedItems> TrackingRequests { get; set; }
 
