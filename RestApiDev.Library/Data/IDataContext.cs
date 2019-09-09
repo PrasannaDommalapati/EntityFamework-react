@@ -12,7 +12,7 @@ namespace RestApiDev.Library.Data
 
         DbSet<PromotedItem> PromotedItems { get; set; }
 
-        DbSet<FinishedItems> TrackingRequests { get; set; }
+        DbSet<FinishedItem> TrackingRequests { get; set; }
 
         void Update();
 

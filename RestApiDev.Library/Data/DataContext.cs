@@ -15,6 +15,6 @@ namespace RestApiDev.Library.Data
 
         public DbSet<PromotedItem> PromotedItems { get; set; }
 
-        public DbSet<FinishedItems> FinishedItems { get; set; }
+        public DbSet<FinishedItem> FinishedItems { get; set; }
     }
 }
